@@ -8,7 +8,7 @@ variable "public_subnet_cidr_blocks" {
 }
 
 variable "private_subnet_cidr_blocks" {
-  type = string
+  type = list(any)
   default = [
     "172.33.100.0/24",
     "172.33.110.0/24",
