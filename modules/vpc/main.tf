@@ -91,7 +91,7 @@ resource "aws_route_table" "lambda_function_rt" {
 # private subnet route table associations
 resource "aws_route_table_association" "private_rta" {
   subnet_id      = element(aws_subnet.private_subnets.*.id, count.index)
-  route_table_id = aws_route_table.lambda_function_rt[].id
+  route_table_id = aws_route_table.lambda_function_rt[count.index].id
   count          = length(aws_subnet.private_subnets)
 }
 
