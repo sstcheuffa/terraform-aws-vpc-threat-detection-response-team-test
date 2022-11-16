@@ -4,7 +4,7 @@ variable "aws_region" {
 }
 
 variable "aws_account_ids" {
-  type    = list
+  type    = list(any)
   default = null
 }
 
