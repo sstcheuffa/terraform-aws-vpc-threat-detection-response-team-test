@@ -15,7 +15,7 @@ resource "aws_vpc" "application_vpc" {
 
 # Subnets
 resource "aws_subnet" "public_subnets" {
-  vpc_id                  = 
+  vpc_id                  = aws_vpc.application_vpc.id
   cidr_block              = element(var.public_subnet_cidr_blocks, count.index)
   availability_zone       = element(var.availability_zones, count.index)
   map_public_ip_on_launch = true
