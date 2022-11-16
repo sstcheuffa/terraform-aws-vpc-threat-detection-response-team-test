@@ -19,7 +19,7 @@ resource "aws_subnet" "public_subnets" {
   cidr_block              = element(var.public_subnet_cidr_blocks, count.index)
   availability_zone       = element(var.availability_zones, count.index)
   map_public_ip_on_launch = true
-  count                   = 
+  count                   = length(var.public_subnet_cidr_blocks)
 
   tags = {
     Name = "${var.environment}_public_subnet_${substr(element(var.availability_zones, count.index), -1, 1)}"
